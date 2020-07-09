@@ -45,58 +45,61 @@ def create_tree(dim, array=None):
 
 def compare_tree_list(tree, list_or, list_un, dim, statistica):
     # Albero
-    nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
-    out = open("./Risultati/" + nome_file + "-Albero.txt", "w")
-    h_inizio = dt.datetime.now()
-    start = timer()
-    tree.OS_Select(tree.root, statistica)
-    end = timer()
-    h_fine = dt.datetime.now()
-    delta = end - start
-    print("(ALBERO)Tempo per trovare", statistica, ":", delta)
-    out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione Albero: " + str(dim)+"\n")
-    out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
-    str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
-    str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
-    out.write("\n\n" + str(str_start))
-    out.write("\n" + str(str_end))
-    out.close()
+    if tree != None:
+        nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
+        out = open("./Risultati/" + nome_file + "-Albero.txt", "w")
+        h_inizio = dt.datetime.now()
+        start = timer()
+        tree.OS_Select(tree.root, statistica)
+        end = timer()
+        h_fine = dt.datetime.now()
+        delta = end - start
+        print("(ALBERO)Tempo per trovare", statistica, ":", delta)
+        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione Albero: " + str(dim)+"\n")
+        out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
+        str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
+        str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
+        out.write("\n\n" + str(str_start))
+        out.write("\n" + str(str_end))
+        out.close()
 
     # Lista ORDINATA
-    nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
-    out = open("./Risultati/" + nome_file + "-ListaO.txt", "w")
-    h_inizio = dt.datetime.now()
-    start = timer()
-    list_or.list_select(statistica)
-    end = timer()
-    h_fine = dt.datetime.now()
-    delta = end - start
-    print("(LISTA O)Tempo per trovare", statistica, ":", delta)
-    out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim)+"\n")
-    out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
-    str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
-    str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
-    out.write("\n\n" + str(str_start))
-    out.write("\n" + str(str_end))
-    out.close()
+    if list_or != None:
+        nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
+        out = open("./Risultati/" + nome_file + "-ListaO.txt", "w")
+        h_inizio = dt.datetime.now()
+        start = timer()
+        list_or.list_select(statistica)
+        end = timer()
+        h_fine = dt.datetime.now()
+        delta = end - start
+        print("(LISTA O)Tempo per trovare", statistica, ":", delta)
+        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim)+"\n")
+        out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
+        str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
+        str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
+        out.write("\n\n" + str(str_start))
+        out.write("\n" + str(str_end))
+        out.close()
 
     # Lista NON ORDINATA
-    nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
-    out = open("./Risultati/" + nome_file + "-ListaNO.txt", "w")
-    h_inizio = dt.datetime.now()
-    start = timer()
-    list_un.list_select(statistica)
-    end = timer()
-    h_fine = dt.datetime.now()
-    delta = end - start
-    print("(LISTA NO)Tempo per trovare", statistica, ":", delta)
-    out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim)+"\n")
-    out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
-    str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
-    str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
-    out.write("\n\n" + str(str_start))
-    out.write("\n" + str(str_end))
-    out.close()
+    if list_un != None:
+        nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
+        out = open("./Risultati/" + nome_file + "-ListaNO.txt", "w")
+        h_inizio = dt.datetime.now()
+        start = timer()
+        list_un.list_select(statistica)
+        end = timer()
+        h_fine = dt.datetime.now()
+        delta = end - start
+        print("(LISTA NO)Tempo per trovare", statistica, ":", delta)
+        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim)+"\n")
+        out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
+        str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
+        str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
+        out.write("\n\n" + str(str_start))
+        out.write("\n" + str(str_end))
+        out.close()
 
 
 def main(dim, statistica):
@@ -109,34 +112,23 @@ def main(dim, statistica):
 
 if __name__ == "__main__":
     #####
-    dim = 10
-    stat = 50
+    dim = 100000
+    stat = 12500
     #####
 
-    # main(dim, stat)
-    array = ac.create_rand_array(dim, 0, 10)
-    # list_or = create_list_ordered(dim, array)
+    array = ac.create_rand_array(dim)
+    tree = create_tree(dim, array)
+    list_or = create_list_ordered(dim, array)
+    list_or = None
     list_un = create_list_unordered(dim, array)
-    list_un.print()
+    #list_un = None
 
+    still_inputs = True
+    while still_inputs:
+        inpt = int(input("Statistica d'ordine: (scrivi 0 per uscire)"))
+        if int(inpt) == 0:
+            still_inputs = False
+        else:
+            compare_tree_list(tree, list_or, list_un, dim, int(inpt))
 
-
-
-
-
-
-
-
-
-    # bst = create_random_tree(100000)
-    # start = timer()
-    #print(bst.OS_Select(bst.root, stat))
-    #end = timer()
-    #print("Temp per la statistica ", stat, " con tree:", end - start)
-    # print(bst.OS_Rank(bst.OS_Select(bst.root, 14)))
-
-    #lista = create_random_list(100000)
-    #start = timer()
-    #print(lista.list_select(stat))
-    #end = timer()
-    #print("Temp per la statistica ", stat, " con lista:", end - start)
+    # main(dim, stat)

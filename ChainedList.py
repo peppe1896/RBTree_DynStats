@@ -11,15 +11,8 @@ class linked_list:
         _size = 0
         while current != None:
             _size = _size + 1
-            current.rank = _size
+            current.size = _size
             current = current.getNext()
-
-    def find_zero(self):
-        current = self.head
-        while current != None:
-            if current.rank == 0:
-                print(current.rank)
-                return current
 
     def calc_size_unordered(self):
         list = []
@@ -27,16 +20,30 @@ class linked_list:
         while current != None:
             list.append(current.data)
             current = current.next
+        list.sort()
+        for i in range(0, len(list)):
+            temp = self.head
+            assigned = False
+            while temp != None and not assigned:
+                if temp.data == list[i]:
+                    if temp.size == 0:
+                        j = i + 1
+                        temp.size = j
+                        assigned = True
+                temp = temp.next
+
+    def calc_size_unordered_old(self):
         rank = 1
-        for i in list:
+        while rank <= self.list_size:
             current = self.head
-            found = False
-            while current != None and not found:
-                if i == current.data:
-                    current.rank = rank
-                    rank = rank + 1
-                    found = True
+            min = self.head
+            while current != None:
+                if current.data < min.data:
+                    if current.size == 0:
+                        min = current
                 current = current.next
+            min.size = rank
+            rank += 1
 
     def search(self, item):
         current = self.head
@@ -83,27 +90,31 @@ class linked_list:
         self.list_size += 1
         # self.calcSize()
 
-    def size(self):
+    def delete(self, value):
+        previous = self.head
         current = self.head
-        count = 0
         while current != None:
-            count = count + 1
-            current = current.getNext()
-
-        return count
+            previous = current
+            if value == current.data:
+                break
+            current = current.next
+        if current == None:
+            print("Nodo non presente.")
+        else:
+            previous.next = current.next
 
     def print(self):
         current = self.head
         while current is not None:
-            print("size"+str(current.rank)+"-key:" + str(current.data), end="; ")
+            print("size" + str(current.size) + "-key:" + str(current.data), end="; ")
             current = current.next
 
     def list_select(self, i):
         if i <= self.list_size:
             current = self.head
             while current != None:
-                if i == current.rank:
+                if i == current.size:
                     return current
                 current = current.next
         else:
-            print("Statistica d'ordine out of range")
+            print("Error: out of range")

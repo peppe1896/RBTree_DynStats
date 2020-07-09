@@ -16,8 +16,7 @@ class NodeLinked:
     def __init__(self, initdata):
         self.data = initdata
         self.next = None
-        self.rank = int(0)
-        self.hasrank = False
+        self.size = int(0)
 
     def getData(self):
         return self.data
