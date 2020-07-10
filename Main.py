@@ -225,6 +225,6 @@ if __name__ == "__main__":
             else:
                 compare_tree_list(tree, list_or, list_un, dim, int(inpt))
     else:
-        # print_graph()
+        print_graph()
         print_structures_time(True)
         print_structures_time(False)
