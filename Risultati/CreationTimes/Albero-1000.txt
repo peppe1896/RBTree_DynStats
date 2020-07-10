@@ -1,0 +1,13 @@
+0.00523770399740897119045257568359375
+0.004371143993921577930450439453125
+
+In questo ordine, a partire dalla prima riga:
+ - Creazione albero di nodi con parametro size
+ - Creazione albero R-B 'standard'
+Tutti i tempi sono espressi in secondi. 
+
+Dimensione albero: 1000
+Data 10/7/2020
+
+Inizio:: 20:4:47
+Fine:: 20:4:47

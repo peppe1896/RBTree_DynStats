@@ -26,8 +26,8 @@ def create_list_ordered(dim, array=None):
     delta_insert = Decimal(delta_insert)
     delta_size = end - end_creaz_stru  # Tempo inserimento parametro size
     delta_size = Decimal(delta_size)
-    out = open("./Risultati/CreationTimes/Lista-O-" + str(dim) + ".txt", "w+")
-    out.write(str(delta_size) + "\n" + str(delta_insert) + "\n"+ str(delta_tot) +
+    out = open("./Risultati/CreationTimes/ListaO-" + str(dim) + ".txt", "w+")
+    out.write(str(delta_size) + "\n" + str(delta_insert) + "\n" + str(delta_tot) +
               "\n\nIn questo ordine, a partire dalla prima riga:"
               "\n - Tempo calcolo e inserimento parametro size ai nodi"
               "\n - Tempo inserimenti valori nella lista"
@@ -63,8 +63,8 @@ def create_list_unordered(dim, array=None):
     delta_insert = Decimal(delta_insert)
     delta_size = end - end_creaz_stru  # Tempo inserimento parametro size
     delta_size = Decimal(delta_size)
-    out = open("./Risultati/CreationTimes/Lista-NO-" + str(dim) + ".txt", "w+")
-    out.write(str(delta_size) + "\n" + str(delta_insert) + "\n"+ str(delta_tot) +
+    out = open("./Risultati/CreationTimes/ListaNO-" + str(dim) + ".txt", "w+")
+    out.write(str(delta_size) + "\n" + str(delta_insert) + "\n" + str(delta_tot) +
               "\n\nIn questo ordine, a partire dalla prima riga:"
               "\n - Tempo calcolo e inserimento parametro size ai nodi"
               "\n - Tempo inserimenti valori nella lista"
@@ -92,7 +92,7 @@ def create_tree(dim, array=None, returnOSTree=True):
         tree.insert(array[i])
     end = timer()
     delta_size = end - start
-    delta_size = Decimal(delta_size) # Tempo creazione con parametro Size
+    delta_size = Decimal(delta_size)  # Tempo creazione con parametro Size
     start = timer()
     for i in range(0, dim):
         tree_without.insert(array[i], withOS=False)
@@ -101,7 +101,7 @@ def create_tree(dim, array=None, returnOSTree=True):
     delta_non_size = end - start
     delta_non_size = Decimal(delta_non_size)
     out = open("./Risultati/CreationTimes/Albero-" + str(dim) + ".txt", "w+")
-    out.write(str(delta_size) + "\n" + str(delta_non_size)+
+    out.write(str(delta_size) + "\n" + str(delta_non_size) +
               "\n\nIn questo ordine, a partire dalla prima riga:"
               "\n - Creazione albero di nodi con parametro size"
               "\n - Creazione albero R-B 'standard'"
@@ -123,7 +123,7 @@ def create_tree(dim, array=None, returnOSTree=True):
 def compare_tree_list(tree, list_or, list_un, dim, statistica):
     # Albero
     if tree != None:
-        nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
+        nome_file = "Dim-" + str(dim) + "_OS-" + str(statistica)
         out = open("./Risultati/" + nome_file + "-Albero.txt", "w")
         h_inizio = dt.datetime.now()
         start = timer()
@@ -133,7 +133,7 @@ def compare_tree_list(tree, list_or, list_un, dim, statistica):
         delta = end - start
         delta = Decimal(delta)
         print("(ALBERO)Tempo per trovare", statistica, ":", delta)
-        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione Albero: " + str(dim)+"\n")
+        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione Albero: " + str(dim) + "\n")
         out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
         str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
         str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
@@ -143,7 +143,7 @@ def compare_tree_list(tree, list_or, list_un, dim, statistica):
 
     # Lista ORDINATA
     if list_or != None:
-        nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
+        nome_file = "Dim-" + str(dim) + "_OS-" + str(statistica)
         out = open("./Risultati/" + nome_file + "-ListaO.txt", "w")
         h_inizio = dt.datetime.now()
         start = timer()
@@ -153,7 +153,7 @@ def compare_tree_list(tree, list_or, list_un, dim, statistica):
         delta = end - start
         delta = Decimal(delta)
         print("(LISTA O)Tempo per trovare", statistica, ":", delta)
-        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim)+"\n")
+        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim) + "\n")
         out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
         str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
         str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
@@ -163,7 +163,7 @@ def compare_tree_list(tree, list_or, list_un, dim, statistica):
 
     # Lista NON ORDINATA
     if list_un != None:
-        nome_file = "Dim-" + str(dim)+"_OS-"+str(statistica)
+        nome_file = "Dim-" + str(dim) + "_OS-" + str(statistica)
         out = open("./Risultati/" + nome_file + "-ListaNO.txt", "w")
         h_inizio = dt.datetime.now()
         start = timer()
@@ -173,7 +173,7 @@ def compare_tree_list(tree, list_or, list_un, dim, statistica):
         delta = end - start
         delta = Decimal(delta)
         print("(LISTA NO)Tempo per trovare", statistica, ":", delta)
-        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim)+"\n")
+        out.write(str(delta) + "\n\nIl tempo è in sec.\nDimensione lista: " + str(dim) + "\n")
         out.write("Data " + str(h_inizio.day) + "/" + str(h_inizio.month) + "/" + str(h_inizio.year))
         str_start = "Inizio:: " + str(h_inizio.hour) + ":" + str(h_inizio.minute) + ":" + str(h_inizio.second)
         str_end = "Fine:: " + str(h_fine.hour) + ":" + str(h_fine.minute) + ":" + str(h_fine.second)
@@ -188,7 +188,7 @@ def print_graph():
          20000: [2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000],
          50000: [5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000],
          100000: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]}
-    list_dimensions = [1000, 10000, 20000, 50000, 100000] # dimensione struttura
+    list_dimensions = [1000, 10000, 20000, 50000, 100000]  # dimensione struttura
     data_structure = ["Albero", "ListaO", "ListaNO"]  # struttura
     for ds in data_structure:
         for i in list_dimensions:
@@ -196,9 +196,16 @@ def print_graph():
             Plot.print_plot()
 
 
+def print_structures_time(withOS):
+    list_dimensions = [1000, 10000, 20000, 50000, 100000]  # dimensione struttura
+    data_structure = ["Albero", "ListaO", "ListaNO"]  # struttura
+    for ds in data_structure:
+        Plot.draw_graphic(1, list_dimensions, str(ds), structur_times=True, withOS=withOS)
+        Plot.print_plot()
+
 if __name__ == "__main__":
     #####
-    dim = 50000
+    dim = 10000
     print_mode = True
     #####
 
@@ -218,4 +225,6 @@ if __name__ == "__main__":
             else:
                 compare_tree_list(tree, list_or, list_un, dim, int(inpt))
     else:
-        print_graph()
+        # print_graph()
+        print_structures_time(True)
+        print_structures_time(False)
