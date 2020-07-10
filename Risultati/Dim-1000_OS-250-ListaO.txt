@@ -1,7 +1,7 @@
-7.630599429830909e-05
+0.00022577799973078072
 
 Il tempo è in sec.
-Dimensione Albero: 1000
+Dimensione lista: 1000
 Data 10/7/2020
 
 Inizio:: 12:18:34

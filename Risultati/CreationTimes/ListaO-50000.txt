@@ -1,0 +1,15 @@
+0.01921207900159060955047607421875
+320.586970468997606076300144195556640625
+320.606182723990059457719326019287109375
+
+In questo ordine, a partire dalla prima riga:
+ - Tempo calcolo e inserimento parametro size ai nodi
+ - Tempo inserimenti valori nella lista
+ - Tempo totale della procedura.
+Tutti i tempi sono espressi in secondi. 
+
+Dimensione lista: 50000
+Data 10/7/2020
+
+Inizio:: 17:35:32
+Fine:: 17:40:52

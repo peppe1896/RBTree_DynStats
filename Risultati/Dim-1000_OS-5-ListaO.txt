@@ -1,0 +1,8 @@
+0.0000155160087160766124725341796875
+
+Il tempo è in sec.
+Dimensione lista: 1000
+Data 10/7/2020
+
+Inizio:: 13:2:21
+Fine:: 13:2:21
