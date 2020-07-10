@@ -1,8 +1,9 @@
 import Tree
 import ChainedList as list
 from timeit import default_timer as timer
-import array_creator as ac
+import ArrayCreator as ac
 import datetime as dt
+import plot
 
 
 def create_list_ordered(dim, array=None):
@@ -102,33 +103,35 @@ def compare_tree_list(tree, list_or, list_un, dim, statistica):
         out.close()
 
 
-def main(dim, statistica):
-    array = ac.create_rand_array(dim)
-    tree = create_tree(dim, array)
-    list_or = create_list_ordered(dim, array)
-    list_un = create_list_unordered(dim, array)
-    compare_tree_list(tree, list_or, list_un, dim, statistica)
+def print_graph():
+    list_dimensions = [1000, 10000, 25000, 50000, 100000] # dimensione struttura
+    list_statistiche = [250, 500, 750, 1000]
+    data_structure = ["Albero", "ListaO", "ListaNO"]  # struttura
+    for ds in data_structure:
+        for i in list_dimensions:
+            plot.draw_graphic(i, list_statistiche, str(ds))
+        plot.print_plot()
 
 
 if __name__ == "__main__":
     #####
-    dim = 100000
-    stat = 12500
+    dim = 25000
+    printmode = True
     #####
+    if not printmode:
+        array = ac.create_rand_array(dim)
+        tree = create_tree(dim, array)
+        list_or = create_list_ordered(dim, array)
+        # list_or = None
+        list_un = create_list_unordered(dim, array)
+        #list_un = None
 
-    array = ac.create_rand_array(dim)
-    tree = create_tree(dim, array)
-    list_or = create_list_ordered(dim, array)
-    list_or = None
-    list_un = create_list_unordered(dim, array)
-    #list_un = None
-
-    still_inputs = True
-    while still_inputs:
-        inpt = int(input("Statistica d'ordine: (scrivi 0 per uscire)"))
-        if int(inpt) == 0:
-            still_inputs = False
-        else:
-            compare_tree_list(tree, list_or, list_un, dim, int(inpt))
-
-    # main(dim, stat)
+        still_inputs = True
+        while still_inputs:
+            inpt = int(input("Statistica d'ordine: (scrivi 0 per uscire)"))
+            if int(inpt) == 0:
+                still_inputs = False
+            else:
+                compare_tree_list(tree, list_or, list_un, dim, int(inpt))
+    else:
+        print_graph()

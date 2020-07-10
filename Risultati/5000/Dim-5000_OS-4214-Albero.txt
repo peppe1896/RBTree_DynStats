@@ -1,0 +1,8 @@
+1.4399999997749546e-05
+
+Il tempo è in sec.
+Dimensione Albero: 5000
+Data 9/7/2020
+
+Inizio:: 21:41:24
+Fine:: 21:41:24
