@@ -46,7 +46,7 @@ def draw_graphic(ds_dim, list_ascissa, struttura_dati, structur_times=False, wit
         list_x = list_ascissa
         list_y = create_array_ds(list_ascissa, struttura_dati, withOS)
         plt.xlabel("Dimensione")
-        plt.ylabel("Tempo (s)")
+        plt.ylabel("Tempo (s)", labelpad=-10)
         string = " senza campo size."
         if withOS == True:
             string = " con campo size."

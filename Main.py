@@ -203,9 +203,10 @@ def print_structures_time(withOS):
         Plot.draw_graphic(1, list_dimensions, str(ds), structur_times=True, withOS=withOS)
         Plot.print_plot()
 
+
 if __name__ == "__main__":
     #####
-    dim = 10000
+    dim = 1000
     print_mode = True
     #####
 
