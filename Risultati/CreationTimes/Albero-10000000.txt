@@ -1,0 +1,13 @@
+291.699605000000019572325982153415679931640625
+243.1458618000000342362909577786922454833984375
+
+In questo ordine, a partire dalla prima riga:
+ - Creazione albero di nodi con parametro size
+ - Creazione albero R-B 'standard'
+Tutti i tempi sono espressi in secondi. 
+
+Dimensione albero: 10000000
+Data 12/7/2020
+
+Inizio:: 10:55:29
+Fine:: 11:4:24

@@ -59,5 +59,37 @@ def draw_graphic(ds_dim, list_ascissa, struttura_dati, structur_times=False, wit
     plt.legend()
 
 
+def draw_graphic_media(ds_dim, list_ascissa, struttura_dati, structur_times=False, withOS=True):
+    if not structur_times:  # voglio stampare i tempi di accesso alle statistiche d'ordine
+        list_x = list_ascissa
+        temp = 0
+        for i in list_x:
+            temp += i
+        list_x = temp // 10
+        list_y = create_data_array(ds_dim, list_ascissa, struttura_dati)
+        temp_1 = 0
+        for i in list_y:
+            temp_1 += i
+        list_y = temp_1 // 10
+        plt.xlabel("Statistica d'ordine")
+        plt.ylabel("Tempo (s)")
+        plt.title(str(struttura_dati) + "-" + str(ds_dim))
+    else:  # voglio stampare i tempi di creazione delle strutture dati
+        list_x = list_ascissa
+        list_y = create_array_ds(list_ascissa, struttura_dati, withOS)
+        plt.xlabel("Dimensione")
+        plt.ylabel("Tempo (s)", labelpad=-10)
+        string = " senza campo size."
+        if withOS == True:
+            string = " con campo size."
+        plt.title("Tempi creazione " + str(struttura_dati) + string)
+    color = "b"
+    mark = "o"
+    mk_face_color = "r"
+    label = str(struttura_dati) + "-" + str(ds_dim)
+    plt.plot(list_x, list_y, label=label, color=color, marker=mark, markerfacecolor=mk_face_color)
+    plt.legend()
+
+
 def print_plot():
     plt.show()

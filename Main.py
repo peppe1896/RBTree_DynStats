@@ -187,36 +187,46 @@ def print_graph():
          10000: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000],
          20000: [2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000],
          50000: [5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000],
-         100000: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]}
+         100000: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000],
+         1000000: [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000],
+         10000000: [200000, 400000, 600000, 800000, 100000, 1000000, 2000000, 5000000, 2000000, 5000000, 7000000,
+                    8000000, 9000000, 9200000, 9400000, 9600000, 9800000]}
     list_dimensions = [1000, 10000, 20000, 50000, 100000]  # dimensione struttura
-    data_structure = ["Albero", "ListaO", "ListaNO"]  # struttura
-    for ds in data_structure:
-        for i in list_dimensions:
-            Plot.draw_graphic(i, d[i], str(ds))
-            Plot.print_plot()
+    data_structure = ["ListaO", "ListaNO", "Albero"]  # struttura
+        #if ds == "Albero":
+        #    list_dimensions.append(1000000)
+        #    list_dimensions.append(10000000)
+
+    for i in list_dimensions:
+        for ds in data_structure:
+            Plot.draw_graphic_media(i, d[i], str(ds))
+        Plot.print_plot()
 
 
 def print_structures_time(withOS):
     list_dimensions = [1000, 10000, 20000, 50000, 100000]  # dimensione struttura
-    data_structure = ["Albero", "ListaO", "ListaNO"]  # struttura
+    data_structure = ["ListaO", "ListaNO", "Albero"]  # struttura
     for ds in data_structure:
+        if ds == "Albero":
+            list_dimensions.append(1000000)
+            list_dimensions.append(10000000)
         Plot.draw_graphic(1, list_dimensions, str(ds), structur_times=True, withOS=withOS)
         Plot.print_plot()
 
 
 if __name__ == "__main__":
     #####
-    dim = 1000
+    dim = 10000000
     print_mode = True
     #####
 
     if not print_mode:
         array = ac.create_rand_array(dim)
         tree = create_tree(dim, array)
-        # list_or = None
-        # list_un = None
-        list_or = create_list_ordered(dim, array)
-        list_un = create_list_unordered(dim, array)
+        list_or = None
+        list_un = None
+        # list_or = create_list_ordered(dim, array)
+        # list_un = create_list_unordered(dim, array)
 
         still_inputs = True
         while still_inputs:
@@ -228,4 +238,4 @@ if __name__ == "__main__":
     else:
         print_graph()
         print_structures_time(True)
-        print_structures_time(False)
+        # print_structures_time(False)

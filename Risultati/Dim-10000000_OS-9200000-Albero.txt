@@ -1,0 +1,8 @@
+0.0000381999998353421688079833984375
+
+Il tempo è in sec.
+Dimensione Albero: 10000000
+Data 12/7/2020
+
+Inizio:: 11:13:56
+Fine:: 11:13:56
